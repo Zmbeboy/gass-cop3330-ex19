@@ -9,13 +9,28 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("What is your height in inches");
+        System.out.print("What is your height in inches? ");
         String height = scan.nextLine();
-        System.out.print("What is your weight in pounds");
-        String weight = scan.nextLine();
-
+        try {
+            double inches = Double.parseDouble(height);
+        }
+        catch (Exception e){
+            System.out.println("Invalid response");
+            System.exit(1);
+        }
         double inches = Double.parseDouble(height);
+
+        System.out.print("What is your weight in pounds? ");
+        String weight = scan.nextLine();
+        try {
+            double pounds = Double.parseDouble(weight);
+        }
+        catch (Exception e){
+            System.out.println("Invalid response");
+            System.exit(1);
+        }
         double pounds = Double.parseDouble(weight);
+
 
         double bmi = (pounds / (inches * inches)) * 703;
         System.out.println(String.format("Your BMI is %.1f.", bmi));
